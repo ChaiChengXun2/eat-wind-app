@@ -4,17 +4,16 @@ import About from "./About";
 import LPlaces from "./LPLaces";
 import Footer from "../Footer";
 
-const Homepage = () => {
-
+const Homepage = ({ destinations }) => {
   useEffect(() => {
-    document.title = "Eat Wind | A Trip Around Malaysia"
+    document.title = "Eat Wind | A Trip Around Malaysia";
   }, [])
 
   return (
     <div className='homepage'>
       <LandingPage /> 
       <About />
-      <LPlaces />
+      <LPlaces destinations={destinations}/>
       <Footer />
     </div>
   )

@@ -2,27 +2,14 @@ import React, { useEffect, useState } from 'react';
 import "./lplaces.css";
 import Title from "../../Title";
 import { Link } from "react-router-dom";
-import { db } from "../../../database";
-import { onValue, ref } from 'firebase/database';
 import DestinationCard from "../../DestinationCard";
 import DestinationModal from "../../DestinationModal";
 
-const LPlaces = () => {
+
+const LPlaces = ({ destinations }) => {
 
   const [showModal, setShowModal] = useState(false);
-  const [featuredDestinations, setFeaturedDestinations] = useState(false);
   const [targetDestination, setTargetDestination] = useState({});
-
-  useEffect(() => {
-    onValue(ref(db, '/destinations'), (snapshot) => {
-      const data = snapshot.val(); 
-      if (data !== null) {
-        setFeaturedDestinations(Object.values(data))
-      }
-    }, {
-      onlyOnce: true
-    })
-  }, [])
   
   useEffect(() => {
     if (showModal) {
@@ -38,10 +25,10 @@ const LPlaces = () => {
       <Title title='Our Suggestions' sub='Must Try Places' />
       <div className='gay-grid'>
         {
-          featuredDestinations && 
-          featuredDestinations.map((destination, i) => {
+          destinations && 
+          destinations.map((data, i) => {
             return (
-              <DestinationCard key={i} setShowModal={setShowModal} data={destination} setTargetDestination={setTargetDestination} />
+              <DestinationCard key={i} setShowModal={setShowModal} data={data} setTargetDestination={setTargetDestination} />
             )
           })
         }

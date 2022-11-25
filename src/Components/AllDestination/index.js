@@ -7,27 +7,12 @@ import Footer from "../Footer";
 import DestinationCard from "../DestinationCard";
 import DestinationModal from '../DestinationModal';
 import { FiFilter } from "react-icons/fi";
-import { db } from "../../database";
-import { onValue, ref } from 'firebase/database';
 
-const AllDestination = () => {
-
-  const [featuredDestinations, setFeaturedDestinations] = useState(false);
+const AllDestination = ({ destinations }) => {
   const [targetDestination, setTargetDestination] = useState({});
 
   useEffect(() => {
     document.title = "All Destination | Eat Wind"
-  }, [])
-
-  useEffect(() => {
-    onValue(ref(db, '/destinations'), (snapshot) => {
-      const data = snapshot.val(); 
-      if (data !== null) {
-       setFeaturedDestinations(Object.values(data))
-      }
-    }, {
-      onlyOnce: true
-    })
   }, [])
 
   const [search, setSearch] = useState("");
@@ -119,8 +104,8 @@ const AllDestination = () => {
       </section>
       <section className='gay-grid'>
       {
-          featuredDestinations && 
-          featuredDestinations.map((destination, i) => {
+          destinations && 
+          destinations.map((destination, i) => {
             return (
               <DestinationCard setShowModal={setShowModal} key={i} data={destination} setTargetDestination={setTargetDestination} />
             )
