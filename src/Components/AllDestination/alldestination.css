@@ -1,7 +1,6 @@
 .all-destination {
     min-height: 100vh;
     flex-direction: column;
-    overflow: visible;
 }
 
 .all-destination .search-bar { 
