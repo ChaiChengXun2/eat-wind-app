@@ -1,0 +1,6 @@
+.lplaces {
+  min-height: 20vh;
+  flex-direction: column;
+}
+
+.lplaces .default-button {margin-bottom: 50px}

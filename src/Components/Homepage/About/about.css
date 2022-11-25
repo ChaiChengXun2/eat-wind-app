@@ -1,0 +1,9 @@
+.about {
+    min-height: 20vh;
+    flex-direction: column;
+}
+
+.about .paragraph {
+    width: 80%;
+    margin-bottom: 50px;
+}

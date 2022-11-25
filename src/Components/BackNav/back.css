@@ -1,0 +1,17 @@
+.back {
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0px 26px 36px rgba(0, 0, 0, 0.03);
+}
+
+.back .default-button {
+  width: 20%;
+  margin: 0 20px;
+}
+
+.back .default-button svg, .back .default-button p {
+  font-size: 1rem;
+  color: var(--main-colour);
+}
+
+.back .default-button:hover svg, .back .default-button:hover p {color: var(--primary-colour)}

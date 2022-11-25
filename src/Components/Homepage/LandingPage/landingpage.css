@@ -1,0 +1,47 @@
+.landing-page {
+    background: var(--primary-colour);
+    height: 150vh;
+}
+
+.landing-page .night {
+    background: linear-gradient(var(--main-colour), var(--primary-colour));
+    position: absolute;
+    height: 150vh;
+    width: 100%;
+    z-index: 1;
+}
+
+.landing-page .picture {z-index: 3}
+
+.landing-page .picture img {
+    position: absolute;
+    width: 115vw;
+}
+
+.landing-page .kl img {
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 67.5%;
+}
+
+.landing-page .sun img {width: 50vw}
+
+.lp-title { 
+    flex-direction: column;
+    line-height: 40px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--main-colour);
+    font-size: 2rem;
+    font-family: var(--text-font);
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+}
+
+.lp-title span {
+    font-weight: 600;
+    color: var(--main-colour);
+    font-size: 4rem;
+    font-family: var(--title-font);
+}

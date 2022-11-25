@@ -1,0 +1,21 @@
+@media screen and (max-width: 1025px) { 
+  .backdrop .modal .description {width: 90%}
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 250px;
+  }
+  .photo-grid .photo.square, .photo-grid .photo.long, .photo-grid .photo.rectangle { 
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .backdrop .modal .modal-nav .name {margin-left: 2rem;}
+  .backdrop .modal .modal-nav .close {margin-right: 2rem}
+}
+
+@media screen and (max-width: 600px) {
+  .photo-grid {
+    width: 90%;
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: 200px;
+  }
+}

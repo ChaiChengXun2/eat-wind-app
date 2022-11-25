@@ -1,0 +1,23 @@
+@media screen and (max-width: 1367px) {  
+    .landing-page .picture img {width: 125vw}    
+    .landing-page .sun img {width: 75vw}
+    .landing-page .kl img {top: 70%}
+}
+
+@media screen and (max-width: 1024px) {
+    .landing-page {height: 100vh}
+    .landing-page .kl img {top: 75%}
+}
+
+@media screen and (width: 1024px) and (height: 768px) {
+    .landing-page {height: 150vh}
+    .landing-page .picture img {width: 125vw}    
+    .landing-page .sun img {width: 75vw}
+    .landing-page .kl img {top: 70%}
+}
+
+@media screen and (max-width: 767px) {
+    .landing-page .picture img {width: 175vw}  
+    .landing-page .sun img {width: 125vw}
+    .landing-page .kl img {top: 75%}
+}
