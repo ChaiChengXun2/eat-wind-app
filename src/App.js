@@ -15,6 +15,10 @@ const App = () => {
 
   const [destinations, setDestinations] = useState(false);
 
+  useEffect(() => {
+    signInAnonymously(auth);
+  }, [])
+
   onAuthStateChanged(auth, () => {
     onValue(ref(db, '/destinations'), (snapshot) => {
       const data = snapshot.val(); 
