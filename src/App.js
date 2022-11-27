@@ -4,7 +4,7 @@ import ScrollToTop from "./ScrollToTop";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AllDestination from "./Components/AllDestination";
 import NotFound from "./Components/NotFound";
-import { getAuth, signInAnonymously, onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInAnonymously } from "firebase/auth";
 import { app } from "./firebase";
 import { onValue, ref } from 'firebase/database';
 import { db } from "./database";
@@ -14,19 +14,22 @@ const auth = getAuth(app);
 const App = () => {
 
   const [destinations, setDestinations] = useState(false);
+  const [user, setUser] = useState(false);
 
   useEffect(() => {
-    signInAnonymously(auth);
+    signInAnonymously(auth).then(setUser(true));
   }, [])
 
-  onAuthStateChanged(auth, () => {
-    onValue(ref(db, '/destinations'), (snapshot) => {
-      const data = snapshot.val(); 
-      if (data !== null) {
-        setDestinations(Object.values(data))
-      }
-    }, {onlyOnce: true})
-  })
+  useEffect(() => {
+    if (user) {
+      onValue(ref(db, '/destinations'), (snapshot) => {
+        const data = snapshot.val(); 
+        if (data !== null) {
+          setDestinations(Object.values(data))
+        }
+      }, {onlyOnce: true})
+    }
+  }, [user])
 
   return (
     <BrowserRouter>
