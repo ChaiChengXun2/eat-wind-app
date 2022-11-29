@@ -14,22 +14,17 @@ const auth = getAuth(app);
 const App = () => {
 
   const [destinations, setDestinations] = useState(false);
-  const [user, setUser] = useState(false);
 
   useEffect(() => {
-    signInAnonymously(auth).then(setUser(true));
-  }, [])
-
-  useEffect(() => {
-    if (user) {
+    signInAnonymously(auth).then(() => {
       onValue(ref(db, '/destinations'), (snapshot) => {
         const data = snapshot.val(); 
         if (data !== null) {
           setDestinations(Object.values(data))
         }
       }, {onlyOnce: true})
-    }
-  }, [user])
+    });
+  }, [])
 
   return (
     <BrowserRouter>
