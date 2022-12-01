@@ -26,7 +26,7 @@ const LPlaces = ({ destinations }) => {
       <div className='gay-grid'>
         {
           destinations && 
-          destinations.map((data, i) => {
+          destinations.slice(0, 4).map((data, i) => {
             return (
               <DestinationCard key={i} setShowModal={setShowModal} data={data} setTargetDestination={setTargetDestination} />
             )
