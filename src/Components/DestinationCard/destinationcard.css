@@ -4,22 +4,19 @@
   flex-direction: column;
 }
 
-.destination-card span {
-  width: 100%;
-  min-height: 20vh;
+.destination-card img {
+  border-radius: var(--standard-radius);
 }
 
-.destination-card img {border-radius: var(--standard-radius)}
-.destination-card .info {margin: 10px 0}
-
-.destination-card .info h1 {
-  width: 95%;
-  font-size: 2rem;
+.destination-card .information {
+  width: 90%;
   text-align: center;
+  margin-top: 5px;
 }
 
-.destination-card .info p {
+.destination-card .information .title {font-size: 1.8rem}
+
+.destination-card .infomration .type {
   font-size: 1rem;
-  text-align: center;
-  width: 95%;
+  color: var(--disabled-colour);
 }

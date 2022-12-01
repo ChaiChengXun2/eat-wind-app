@@ -2,9 +2,15 @@ footer {
     padding: 10px 0 20px 0;
     width: 90%;
     flex-wrap: wrap;
+    flex-direction: column;
 }
 footer svg {margin-right: 5px}
 footer svg, footer p {
     font-size: 1rem;
     text-align: center;
+}
+
+footer svg, footer p a {
+    cursor: pointer;
+    color: var(--text-colour);
 }

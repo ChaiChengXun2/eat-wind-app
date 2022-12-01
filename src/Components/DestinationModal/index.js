@@ -52,10 +52,15 @@ const DestinationModal = ({ showModal, setShowModal, data }) => {
           <div className='default-title'>{data.Title}</div>
           <div className='default-text type'>{data.Type}</div>
           <div className='location flex-center-center default-text'><GoLocation />{data.Location}</div>
-          <div className='by default-text'>By {data.Author}</div>
         </div>
         <div className='description default-text'>
           {data.Description}
+          {
+            data.OptionalDes && 
+            data.OptionalDes.map((description, index) => {
+              return (<><br/><br/>{description}</>)
+            })
+          }
         </div>
         <div className='photo-grid'>
           <motion.div className='photo rectangle flex-center-center' variants={leftVariant} initial="hidden" whileInView="visible" viewport={{ once: true, amount:0.5 }}><LazyLoadImage src={data.Image5} alt='rectangle'/></motion.div>
